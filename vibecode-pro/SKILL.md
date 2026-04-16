@@ -30,11 +30,23 @@ That means this skill should:
 
 It should **not** try to install itself inside the Vibecode App container.
 
+## Most important rule for bonus skills
+
+When telling the Vibecode App build agent to use a bonus skill, do **not** just say:
+- install frontend-design
+- install cinematic-site-components
+
+That is too vague.
+
+Instead, include the **exact shell commands** the Vibecode App agent should run in a fenced `bash` block, then state how it should use what was installed or cloned.
+
+If you do not provide commands, assume the build agent may not know what repo to clone, what folder to copy, or where to place the skill.
+
 ## What this skill does
 
 1. Turns rough requests into a cleaner Vibecode App-compatible brief
 2. Chooses between `yolo` and sandbox iteration
-3. Adds instructions for bonus skill installation when useful
+3. Adds exact bonus-skill install commands when useful
 4. Suggests project-specific skill creation when the build has repeatable patterns
 
 ## Default workflow
@@ -102,6 +114,7 @@ Use this structure when drafting the prompt for the build agent:
 - what must be secure or server-side
 - whether to deploy immediately or stay in sandbox
 - which bonus skills to install first, if any
+- the exact `bash` commands for installing or cloning those bonus skills
 
 Read `references/brief-template.md` for a reusable template.
 
@@ -117,11 +130,11 @@ Read `references/brief-template.md` for a reusable template.
 
 ### Premium landing page build
 
-> Before building, install the frontend-design skill and use it to improve hierarchy, spacing, clarity, and premium UI quality. Then build this in sandbox first, not yolo.
+> Before building, run the exact frontend-design install commands from the prompt, then use the frontend-design skill to improve hierarchy, spacing, clarity, and premium UI quality. Build this in sandbox first, not yolo.
 
 ### Cinematic marketing page
 
-> Before building, install the cinematic site components skill and use it for premium landing page sections, motion ideas, and richer page composition. Build in sandbox first and refine before deploy.
+> Before building, run the exact cinematic-site-components setup commands from the prompt, then use the cloned repo or installed skill for premium landing page sections, motion ideas, and richer page composition. Build in sandbox first and refine before deploy.
 
 ### Project-specific repeatable workflow
 

@@ -59,7 +59,7 @@ Want the full workflow behind this skill?
 Vibecode Pro helps your local OpenClaw or Claude Code agent:
 - write better project briefs for the Vibecode App
 - decide when to use `yolo` vs sandbox iteration
-- add bonus-skill installation instructions to the Vibecode App build brief when useful
+- add exact bonus-skill installation commands to the Vibecode App build brief when useful
 - suggest project-specific skill creation for recurring workflows
 - improve first-pass build quality for premium or business-critical apps
 
@@ -129,14 +129,14 @@ Examples:
 
 ## Bonus skill support
 
-This repo includes guidance for telling the Vibecode App virtual container agent to install helpful skills such as:
+This repo includes guidance for telling the Vibecode App virtual container agent exactly how to set up helpful bonus skills or reference repos such as:
 - **Anthropic frontend-design**
 - **Robonuggets cinematic-site-components**
 - **skill-creator** for recurring project-specific context
 
-That means your local agent can pass along build instructions like:
-- install a design skill first
-- install a cinematic landing-page skill first
+That means your local agent can pass along build instructions with real command blocks like:
+- clone and copy `frontend-design` into `~/.claude/skills/`
+- clone `cinematic-site-components` into the container as a reference repo
 - create a custom skill for repeatable domain logic before continuing
 
 ## Recommended workflow
@@ -159,6 +159,12 @@ Your local agent can turn it into something more useful, like:
 > Build a premium SaaS landing page for founders evaluating agentic workflows. Before building, install the frontend-design skill and use it to improve hierarchy, spacing, clarity, and premium UI quality. Build in sandbox first, not yolo. Keep the layout mobile-polished and conversion-focused.
 
 That is the difference this skill is meant to create.
+
+## Important implementation detail
+
+Vibecode Pro should not merely mention skill names.
+
+It should give the Vibecode App agent the actual shell commands needed to clone or copy the bonus skills and reference repos before the build starts.
 
 ## Who this helps most
 

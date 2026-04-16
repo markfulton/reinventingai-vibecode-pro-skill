@@ -4,7 +4,17 @@ This reference is for the moment when your **local** OpenClaw or Claude Code age
 
 The goal is not to install `vibecode-pro` in the container.
 
-The goal is to tell the Vibecode App which **helpful bonus skills** should be installed **before building**, based on the project.
+The goal is to tell the Vibecode App which **helpful bonus skills or reference repos** should be set up **before building**, based on the project.
+
+## Core rule
+
+Do **not** tell the Vibecode App agent only:
+- install frontend-design
+- install cinematic-site-components
+
+That is incomplete.
+
+Instead, give the build agent the **exact shell commands** to run, in a fenced `bash` block, and then tell it how to use the installed skill or cloned reference repo.
 
 ## When to add bonus-skill instructions
 
@@ -22,37 +32,45 @@ Use when:
 - the app needs stronger hierarchy and spacing
 - the first pass needs to feel more premium
 
-Install with:
+Use this exact setup block in the Vibecode App brief:
 
 ```bash
-# From the skills repo (recommended)
-git clone https://github.com/anthropics/skills.git
-cp -r skills/skills/frontend-design ~/.claude/skills/
+mkdir -p ~/.claude/skills
+git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cp -r /tmp/anthropic-skills/skills/frontend-design ~/.claude/skills/
 ```
 
-Add this kind of instruction to the Vibecode App build brief:
+Then add this instruction below the commands:
 
-> Before building, install the frontend-design skill and use it to improve hierarchy, spacing, clarity, premium UI quality, responsive polish, and visual consistency.
+> After running the commands above, use the `frontend-design` skill to improve hierarchy, spacing, clarity, premium UI quality, responsive polish, and visual consistency.
 
-## 2) Cinematic site components skill
+## 2) Cinematic site components
 
 Use when:
 - the user wants a cinematic landing page
 - the brand needs more editorial or premium SaaS feel
 - the page needs richer components or visual storytelling
 
-Install with:
+Important: the public `robonuggets/cinematic-site-components` repo is best treated as a **reference repo / component library** unless you know a packaged Claude skill folder is present in the environment.
+
+Use this exact setup block in the Vibecode App brief:
 
 ```bash
-git clone https://github.com/robonuggets/cinematic-site-components.git
-cd cinematic-site-components
+git clone https://github.com/robonuggets/cinematic-site-components.git /tmp/cinematic-site-components
 ```
 
-If the Vibecode App container needs the skill inside `~/.claude/skills`, add the copy step after cloning.
+Then add this instruction below the commands:
 
-Add this kind of instruction to the Vibecode App build brief:
+> After cloning the repo above, use `/tmp/cinematic-site-components` as a reference library for premium landing page sections, richer composition, motion ideas, visual storytelling, and high-end SaaS/editorial polish.
 
-> Before building, install the cinematic site components skill and use it for premium page sections, richer composition, visual storytelling, and high-end landing page polish.
+If the environment already contains a packaged `cinematic-site-components` skill folder, you may instead add:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r /path/to/cinematic-site-components ~/.claude/skills/
+```
+
+and then explicitly tell the agent to use that installed skill.
 
 ## 3) skill-creator
 
@@ -64,25 +82,31 @@ Use it when:
 - domain context should persist
 - the same output format keeps coming up
 
-Add this kind of instruction to the Vibecode App build brief:
+Add this instruction to the Vibecode App brief:
 
-> Before continuing, use the skill-creator skill to create a project-specific skill for this app's recurring workflow, domain context, and output structure.
+> If `skill-creator` is available in the environment, use it to create a project-specific skill for this app's recurring workflow, domain context, and output structure before continuing.
 
-## How to pass this into the Vibecode App build prompt
+## Copy-paste example block for the Vibecode App brief
 
-Add a short instruction block near the end of the build brief:
+````text
+Before building, run these setup commands:
 
-```text
-Before building:
-- install the frontend-design skill
-- install any other required bonus skills
-- create a project-specific skill if this app has repeated workflow or domain context
-- then begin the build
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cp -r /tmp/anthropic-skills/skills/frontend-design ~/.claude/skills/
+git clone https://github.com/robonuggets/cinematic-site-components.git /tmp/cinematic-site-components
 ```
+
+Then:
+- use the `frontend-design` skill for hierarchy, spacing, clarity, and premium UI polish
+- use `/tmp/cinematic-site-components` as a reference library for cinematic sections, richer composition, and premium visual storytelling
+- build in sandbox first, not yolo
+````
 
 ## Notes
 
-- Install only the skills that clearly help the project
-- For client-facing premium work, prefer sandbox iteration after skill installation
+- Install or clone only the assets that clearly help the project
+- For client-facing premium work, prefer sandbox iteration after setup
 - If a skill adds persistent value across many prompts, creating a project-specific skill is usually worth it
 - `vibecode-pro` is the local helper skill, not the container skill to install

@@ -4,6 +4,16 @@ Use this template when converting a user request into a stronger Vibecode App bu
 
 The **Vibecode App** is available for **web, iOS, Android, and now CLI** and is used to build **mobile apps or web apps**.
 
+## Core rule for bonus skills
+
+If the build needs bonus skills or reference repos, include the **exact shell commands** the Vibecode App agent should run.
+
+Do not say only:
+- install frontend-design
+- install cinematic-site-components
+
+Give the build agent actual commands.
+
 ## Template
 
 ```text
@@ -34,15 +44,20 @@ Important build requirements:
 Workflow:
 - [Use yolo now] OR [build in sandbox first, do not deploy yet]
 
-Before building:
-- [install frontend-design skill if needed]
-- [install cinematic-site-components if needed]
+Before building, run these setup commands if needed:
+```bash
+[EXACT COMMANDS HERE]
+```
+
+Then:
+- [use the installed frontend-design skill if needed]
+- [use the cloned cinematic-site-components repo or installed skill if needed]
 - [create a project-specific skill if needed]
 ```
 
 ## Good brief example
 
-```text
+````text
 Build a web app called BriefForge.
 
 It is for marketers and founders who want better app build briefs.
@@ -70,9 +85,16 @@ Important build requirements:
 Workflow:
 - build in sandbox first, do not deploy yet
 
-Before building:
-- install frontend-design skill
+Before building, run these setup commands:
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cp -r /tmp/anthropic-skills/skills/frontend-design ~/.claude/skills/
 ```
+
+Then:
+- use the `frontend-design` skill to improve hierarchy, spacing, clarity, premium UI quality, and responsive polish
+````
 
 ## Guidance
 
