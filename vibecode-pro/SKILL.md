@@ -1,26 +1,26 @@
 ---
 name: vibecode-pro
-description: "A local helper skill for OpenClaw or Claude Code users who build with Vibecode. Use it alongside the `vibecode-cli` skill to improve the project brief, choose between `yolo` and sandbox iteration, and add instructions telling the Vibecode virtual container agent which bonus skills to install before building. Best for premium landing pages, SaaS apps, internal tools, client apps, and any build that benefits from better planning, stronger frontend polish, or reusable project context."
+description: "A local helper skill for OpenClaw or Claude Code users who build with the Vibecode App. Use it alongside the `vibecode-cli` skill to improve the project brief, choose between `yolo` and sandbox iteration, and add instructions telling the Vibecode App virtual container agent which bonus skills to install before building. Best for premium landing pages, SaaS apps, internal tools, client apps, and any build that benefits from better planning, stronger frontend polish, or reusable project context."
 ---
 
 # Vibecode Pro
 
 This is a **local helper skill**.
 
-Use it on your own OpenClaw or Claude Code installation when you are building through Vibecode.
+Use it on your own OpenClaw or Claude Code installation when you are building through the Vibecode App.
 
 ## Dependency
 
 This skill is meant to work **with** the `vibecode-cli` skill.
 
-- `vibecode-cli` handles the actual Vibecode build workflow
+- `vibecode-cli` handles the actual Vibecode App build workflow
 - `vibecode-pro` improves the brief, planning, and pre-build instructions you send into that workflow
 
-Do not treat this skill as a replacement for the Vibecode app skill.
+Do not treat this skill as a replacement for the Vibecode App skill.
 
 ## Core idea
 
-The purpose of this skill is to help your **local agent** send better instructions to the **Vibecode virtual container agent**.
+The purpose of this skill is to help your **local agent** send better instructions to the **Vibecode App virtual container agent**.
 
 That means this skill should:
 1. improve the build brief
@@ -28,11 +28,11 @@ That means this skill should:
 3. include bonus-skill installation instructions only when useful
 4. suggest project-specific skill creation when repetition justifies it
 
-It should **not** try to install itself inside the Vibecode container.
+It should **not** try to install itself inside the Vibecode App container.
 
 ## What this skill does
 
-1. Turns rough requests into a cleaner Vibecode-compatible brief
+1. Turns rough requests into a cleaner Vibecode App-compatible brief
 2. Chooses between `yolo` and sandbox iteration
 3. Adds instructions for bonus skill installation when useful
 4. Suggests project-specific skill creation when the build has repeatable patterns
@@ -52,7 +52,7 @@ Before building, turn the request into a short product-manager-style brief with:
 
 Do **not** over-specify frameworks, file paths, or implementation trivia unless the user explicitly wants that level of control.
 
-## 2) Choose the right Vibecode path
+## 2) Choose the right Vibecode App path
 
 ### Use `yolo` when:
 - the user wants speed
@@ -71,7 +71,7 @@ If uncertain, prefer sandbox iteration for premium or client-facing work.
 
 ## 3) Add bonus-skill instructions when needed
 
-If the build needs stronger visual polish or reusable operating context, tell the Vibecode virtual container agent to install the right skill before building.
+If the build needs stronger visual polish or reusable operating context, tell the Vibecode App virtual container agent to install the right skill before building.
 
 Read `references/installing-bonus-skills.md` when:
 - the user wants premium frontend design
@@ -91,7 +91,7 @@ Good triggers:
 
 Use the already-installed `skill-creator` skill for that step when available in the Claude Code environment.
 
-## Brief pattern to send into Vibecode
+## Brief pattern to send into the Vibecode App
 
 Use this structure when drafting the prompt for the build agent:
 
@@ -105,7 +105,7 @@ Use this structure when drafting the prompt for the build agent:
 
 Read `references/brief-template.md` for a reusable template.
 
-## Important Vibecode notes
+## Important Vibecode App notes
 
 - Prefer server-side routes for private API keys
 - Put secrets in backend environment, not frontend env

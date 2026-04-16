@@ -1,10 +1,10 @@
-# Installing Bonus Skills in the Vibecode Virtual Container Agent
+# Installing Bonus Skills in the Vibecode App Virtual Container Agent
 
-This reference is for the moment when your **local** OpenClaw or Claude Code agent is preparing instructions for the **Vibecode virtual container agent**.
+This reference is for the moment when your **local** OpenClaw or Claude Code agent is preparing instructions for the **Vibecode App virtual container agent**.
 
 The goal is not to install `vibecode-pro` in the container.
 
-The goal is to tell Vibecode which **helpful bonus skills** should be installed **before building**, based on the project.
+The goal is to tell the Vibecode App which **helpful bonus skills** should be installed **before building**, based on the project.
 
 ## When to add bonus-skill instructions
 
@@ -30,7 +30,7 @@ git clone https://github.com/anthropics/skills.git
 cp -r skills/skills/frontend-design ~/.claude/skills/
 ```
 
-Add this kind of instruction to the Vibecode build brief:
+Add this kind of instruction to the Vibecode App build brief:
 
 > Before building, install the frontend-design skill and use it to improve hierarchy, spacing, clarity, premium UI quality, responsive polish, and visual consistency.
 
@@ -48,9 +48,9 @@ git clone https://github.com/robonuggets/cinematic-site-components.git
 cd cinematic-site-components
 ```
 
-If the Vibecode container needs the skill inside `~/.claude/skills`, add the copy step after cloning.
+If the Vibecode App container needs the skill inside `~/.claude/skills`, add the copy step after cloning.
 
-Add this kind of instruction to the Vibecode build brief:
+Add this kind of instruction to the Vibecode App build brief:
 
 > Before building, install the cinematic site components skill and use it for premium page sections, richer composition, visual storytelling, and high-end landing page polish.
 
@@ -64,11 +64,11 @@ Use it when:
 - domain context should persist
 - the same output format keeps coming up
 
-Add this kind of instruction to the Vibecode build brief:
+Add this kind of instruction to the Vibecode App build brief:
 
 > Before continuing, use the skill-creator skill to create a project-specific skill for this app's recurring workflow, domain context, and output structure.
 
-## How to pass this into the Vibecode build prompt
+## How to pass this into the Vibecode App build prompt
 
 Add a short instruction block near the end of the build brief:
 

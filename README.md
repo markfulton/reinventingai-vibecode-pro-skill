@@ -1,57 +1,71 @@
-# 🚀 Vibecode Pro Skill
+# Vibecode Pro Skill
 
-> **A Reinventing.AI helper skill for Vibecode CLI users who want stronger results from the Vibecode app builder.**
+<div align="center">
 
-## ⚠️ Important: who this is for
+**A local helper skill for OpenClaw or Claude Code users building with the Vibecode App**
 
-This repo is specifically for people using:
-- **OpenClaw + Vibecode CLI**, or
-- **Claude Code + Vibecode CLI**
+*Sharper build briefs. Better planning. Better results from the Vibecode App builder.*
 
-This is a **local helper skill** you install on **your own OpenClaw or Claude Code setup**.
+[Get free Vibecode App credits](https://www.vibecodeapp.com/sign-up?code=ref-3ckyb6h3dwal) • [Training landing page](https://agentappbuilder.reinventing.ai/) • [Clone this repo](https://github.com/markfulton/vibecode-pro-skill)
 
-It works **with** the Vibecode app skill, not instead of it.
-
-### Dependency
-
-This skill is designed to be used alongside the **Vibecode app / `vibecode-cli` skill**.
-
-What it does is simple:
-- your **local agent** uses `vibecode-pro`
-- `vibecode-pro` helps your local agent craft a better Vibecode-compatible brief
-- that brief can include instructions for the **Vibecode virtual container agent** to install useful bonus skills **before building**
-- Vibecode then builds from a stronger plan
-
-So this skill does **not** exist to install itself inside the Vibecode container.
-
-It exists to make the prompts and build plans you send to Vibecode smarter.
-
-## 🎁 New to Vibecode?
-
-Use Mark Fulton’s referral link to sign up and **get free credits**:
-
-### 👉 [Get started with Vibecode and claim free credits](https://www.vibecodeapp.com/sign-up?code=ref-3ckyb6h3dwal)
-
-## 🎓 Training session
-
-Want the full workflow behind this?
-
-### 👉 [See the training session landing page](https://agentappbuilder.reinventing.ai/)
+</div>
 
 ---
 
-## ✨ What Vibecode Pro actually does
+## Overview
+
+This repo is specifically for people using:
+- **OpenClaw + Vibecode App CLI**
+- **Claude Code + Vibecode App CLI**
+
+The **Vibecode App** is available for **web, iOS, Android, and now CLI**.
+
+It builds **mobile apps or web apps** using a hosted Claude Code agent running in a virtual container.
+
+This repo gives you a **local helper skill** you install on **your own OpenClaw or Claude Code setup** so your local agent can send stronger instructions into the Vibecode App workflow.
+
+## Important: how this skill is meant to work
+
+This skill is designed to be used **alongside** the Vibecode App skill, not instead of it.
+
+### Dependency
+
+Use this with the **Vibecode App / `vibecode-cli` skill**.
+
+What that means:
+- your **local agent** uses `vibecode-pro`
+- `vibecode-pro` improves the project brief and plan
+- that improved brief can tell the **Vibecode App virtual container agent** which bonus skills to install before building
+- the Vibecode App then builds from a stronger plan
+
+So this skill does **not** exist to install itself inside the Vibecode App container.
+
+It exists to make the prompts and build plans you send to the Vibecode App smarter.
+
+## Get started with Vibecode App
+
+If you need an account, use Mark Fulton’s referral link to sign up and **claim free credits**:
+
+### [Claim your free Vibecode App credits here](https://www.vibecodeapp.com/sign-up?code=ref-3ckyb6h3dwal)
+
+## Training
+
+Want the full workflow behind this skill?
+
+### [See the training session landing page](https://agentappbuilder.reinventing.ai/)
+
+## What Vibecode Pro actually does
 
 Vibecode Pro helps your local OpenClaw or Claude Code agent:
-- write better project briefs for Vibecode
+- write better project briefs for the Vibecode App
 - decide when to use `yolo` vs sandbox iteration
-- add bonus-skill installation instructions to the Vibecode build brief when useful
+- add bonus-skill installation instructions to the Vibecode App build brief when useful
 - suggest project-specific skill creation for recurring workflows
 - improve first-pass build quality for premium or business-critical apps
 
-## 🧠 Why this matters
+## Why this matters
 
-A lot of weak Vibecode builds come from weak prompts.
+A lot of weak Vibecode App builds come from weak prompts.
 
 Not bad code.
 Bad setup.
@@ -59,12 +73,12 @@ Bad setup.
 This skill improves the setup.
 
 It gives your local agent better judgment about:
-- what to tell Vibecode to build
+- what to tell the Vibecode App to build
 - how to structure the build request
-- when the Vibecode container should install extra skills first
+- when the Vibecode App container should install extra skills first
 - when a project needs a reusable custom skill
 
-## ✅ Best use cases
+## Best use cases
 
 Use this when building:
 - premium landing pages
@@ -75,7 +89,7 @@ Use this when building:
 - micro-SaaS MVPs
 - projects with reusable workflows or domain context
 
-## 📦 Repo contents
+## Repo contents
 
 ```text
 vibecode-pro/
@@ -85,13 +99,13 @@ vibecode-pro/
     └── installing-bonus-skills.md
 ```
 
-## 🔧 Installation
+## Installation
 
 ### 1) Clone this repo
 
 ```bash
-git clone https://github.com/markfulton/reinventingai-vibecode-pro-skill.git
-cd reinventingai-vibecode-pro-skill
+git clone https://github.com/markfulton/vibecode-pro-skill.git
+cd vibecode-pro-skill
 ```
 
 ### 2) Copy the skill into your local Claude Code skills folder
@@ -102,20 +116,20 @@ cp -r vibecode-pro ~/.claude/skills/
 
 If you are using OpenClaw with Claude Code-oriented local skills, use the same folder.
 
-## 🪄 How to use it
+## How to use it
 
-Once installed, ask your **local** agent to use Vibecode Pro while building through Vibecode.
+Once installed, ask your **local** agent to use Vibecode Pro while building through the Vibecode App.
 
 Examples:
 
-- "Use Vibecode Pro to create a better build brief for this app before sending it to Vibecode."
-- "Use Vibecode Pro and tell Vibecode to install the frontend-design skill before building."
+- "Use Vibecode Pro to create a better build brief for this app before sending it to the Vibecode App."
+- "Use Vibecode Pro and tell the Vibecode App to install the frontend-design skill before building."
 - "Use Vibecode Pro, keep this in sandbox first, and only deploy after review."
 - "Use Vibecode Pro and create a project-specific skill for this recurring workflow."
 
-## 🔌 Bonus skill support
+## Bonus skill support
 
-This repo includes guidance for telling the Vibecode virtual container agent to install helpful skills such as:
+This repo includes guidance for telling the Vibecode App virtual container agent to install helpful skills such as:
 - **Anthropic frontend-design**
 - **Robonuggets cinematic-site-components**
 - **skill-creator** for recurring project-specific context
@@ -125,16 +139,16 @@ That means your local agent can pass along build instructions like:
 - install a cinematic landing-page skill first
 - create a custom skill for repeatable domain logic before continuing
 
-## 🧭 Recommended workflow
+## Recommended workflow
 
 1. Install `vibecode-pro` locally
-2. Make sure your local setup also has the Vibecode app / `vibecode-cli` skill available
+2. Make sure your local setup also has the Vibecode App / `vibecode-cli` skill available
 3. Ask your local agent to write a stronger brief with Vibecode Pro
 4. Let Vibecode Pro decide whether this should be `yolo` or sandbox-first
-5. If useful, let Vibecode Pro add instructions telling the Vibecode container agent which bonus skills to install before building
-6. Send the improved brief to Vibecode
+5. If useful, let Vibecode Pro add instructions telling the Vibecode App container agent which bonus skills to install before building
+6. Send the improved brief to the Vibecode App
 
-## 🏗️ Example outcome
+## Example outcome
 
 Instead of a vague prompt like:
 
@@ -146,21 +160,21 @@ Your local agent can turn it into something more useful, like:
 
 That is the difference this skill is meant to create.
 
-## 👥 Who this helps most
+## Who this helps most
 
 This is especially useful for:
 - founders who want better first-pass output
 - operators building internal tools
 - agencies shipping faster client work
 - marketers building polished pages
-- builders who want more leverage from OpenClaw + Vibecode
+- builders who want more leverage from OpenClaw + the Vibecode App
 
-## 🔗 Quick links
+## Quick links
 
-- [Get free Vibecode credits with the referral link](https://www.vibecodeapp.com/sign-up?code=ref-3ckyb6h3dwal)
-- [See the Reinventing.AI training landing page](https://agentappbuilder.reinventing.ai/)
-- [Clone this repo](https://github.com/markfulton/reinventingai-vibecode-pro-skill)
+- [Claim free Vibecode App credits](https://www.vibecodeapp.com/sign-up?code=ref-3ckyb6h3dwal)
+- [See the training landing page](https://agentappbuilder.reinventing.ai/)
+- [Clone this repo](https://github.com/markfulton/vibecode-pro-skill)
 
-## 📄 License
+## License
 
 MIT

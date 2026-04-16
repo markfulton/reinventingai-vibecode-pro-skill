@@ -1,6 +1,8 @@
 # Vibecode Pro Brief Template
 
-Use this template when converting a user request into a stronger Vibecode build prompt.
+Use this template when converting a user request into a stronger Vibecode App build prompt.
+
+The **Vibecode App** is available for **web, iOS, Android, and now CLI** and is used to build **mobile apps or web apps**.
 
 ## Template
 
