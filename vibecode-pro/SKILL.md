@@ -1,13 +1,34 @@
 ---
 name: vibecode-pro
-description: "Enhance Vibecode app builds with stronger project briefs, smarter `yolo` vs sandbox decisions, hosted Claude Code bonus-skill installation, and project-specific skill creation. Use when building on Vibecode via OpenClaw or Claude Code, especially for premium landing pages, SaaS apps, internal tools, client apps, design-heavy builds, or any request that would benefit from better briefing, richer frontend polish, or reusable project context."
+description: "A local helper skill for OpenClaw or Claude Code users who build with Vibecode. Use it alongside the `vibecode-cli` skill to improve the project brief, choose between `yolo` and sandbox iteration, and add instructions telling the Vibecode virtual container agent which bonus skills to install before building. Best for premium landing pages, SaaS apps, internal tools, client apps, and any build that benefits from better planning, stronger frontend polish, or reusable project context."
 ---
 
 # Vibecode Pro
 
-Use this skill when a Vibecode build needs more than a raw prompt.
+This is a **local helper skill**.
 
-The job of this skill is to improve build quality before the hosted Claude Code agent starts coding.
+Use it on your own OpenClaw or Claude Code installation when you are building through Vibecode.
+
+## Dependency
+
+This skill is meant to work **with** the `vibecode-cli` skill.
+
+- `vibecode-cli` handles the actual Vibecode build workflow
+- `vibecode-pro` improves the brief, planning, and pre-build instructions you send into that workflow
+
+Do not treat this skill as a replacement for the Vibecode app skill.
+
+## Core idea
+
+The purpose of this skill is to help your **local agent** send better instructions to the **Vibecode virtual container agent**.
+
+That means this skill should:
+1. improve the build brief
+2. choose the right build mode
+3. include bonus-skill installation instructions only when useful
+4. suggest project-specific skill creation when repetition justifies it
+
+It should **not** try to install itself inside the Vibecode container.
 
 ## What this skill does
 
@@ -48,9 +69,9 @@ Do **not** over-specify frameworks, file paths, or implementation trivia unless 
 
 If uncertain, prefer sandbox iteration for premium or client-facing work.
 
-## 3) Add bonus skills when needed
+## 3) Add bonus-skill instructions when needed
 
-If the build needs stronger visual polish or reusable operating context, tell the hosted Claude Code agent to install the right skill before building.
+If the build needs stronger visual polish or reusable operating context, tell the Vibecode virtual container agent to install the right skill before building.
 
 Read `references/installing-bonus-skills.md` when:
 - the user wants premium frontend design
@@ -59,7 +80,7 @@ Read `references/installing-bonus-skills.md` when:
 
 ## 4) Create a project-specific skill when repetition is likely
 
-If the same domain rules, workflows, or output format will matter across multiple prompts, instruct the agent to create a project-specific skill.
+If the same domain rules, workflows, or output format will matter across multiple prompts, instruct the build process to create a project-specific skill.
 
 Good triggers:
 - repeated industry-specific constraints
@@ -68,11 +89,11 @@ Good triggers:
 - repeated workflow rules
 - repeated API or integration handling patterns
 
-Use the already-installed `skill-creator` skill for that step.
+Use the already-installed `skill-creator` skill for that step when available in the Claude Code environment.
 
 ## Brief pattern to send into Vibecode
 
-Use this structure when drafting the prompt for the hosted agent:
+Use this structure when drafting the prompt for the build agent:
 
 - what the app is
 - who it is for
