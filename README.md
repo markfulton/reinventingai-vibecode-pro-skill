@@ -130,14 +130,18 @@ Examples:
 ## Bonus skill support
 
 This repo includes guidance for telling the Vibecode App virtual container agent exactly how to set up helpful bonus skills or reference repos such as:
+- **Alireza Rezvani's 7-skill marketing and design bundle** (`landing-page-generator`, `ui-design-system`, `ai-seo`, `seo-audit`, `programmatic-seo`, `copywriting`, `marketing-psychology`)
 - **Anthropic frontend-design**
 - **Robonuggets cinematic-site-components**
 - **skill-creator** for recurring project-specific context
 
 That means your local agent can pass along build instructions with real command blocks like:
+- clone one public repo and copy the exact 7 skill folders into `~/.claude/skills/`
 - clone and copy `frontend-design` into `~/.claude/skills/`
 - clone `cinematic-site-components` into the container as a reference repo
 - create a custom skill for repeatable domain logic before continuing
+
+**Important:** always review [`vibecode-pro/references/installing-bonus-skills.md`](./vibecode-pro/references/installing-bonus-skills.md) before adding bonus-skill instructions to a Vibecode App brief. That file contains the exact shell commands and the current recommended skill folders to use.
 
 ## Recommended workflow
 
@@ -145,8 +149,9 @@ That means your local agent can pass along build instructions with real command 
 2. Make sure your local setup also has the Vibecode App / `vibecode-cli` skill available
 3. Ask your local agent to write a stronger brief with Vibecode Pro
 4. Let Vibecode Pro decide whether this should be `yolo` or sandbox-first
-5. If useful, let Vibecode Pro add instructions telling the Vibecode App container agent which bonus skills to install before building
-6. Send the improved brief to the Vibecode App
+5. Always review [`vibecode-pro/references/installing-bonus-skills.md`](./vibecode-pro/references/installing-bonus-skills.md) before adding bonus-skill setup instructions
+6. If useful, let Vibecode Pro add instructions telling the Vibecode App container agent which bonus skills to install before building
+7. Send the improved brief to the Vibecode App
 
 ## Example outcome
 
